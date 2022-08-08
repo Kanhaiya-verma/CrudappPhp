@@ -7,10 +7,8 @@ include 'connection.php';
 
     <?php
 
-    // echo "Connected successfully";
-
     $sql = "SELECT * FROM details";
-    // echo "$sql";
+
 
     $result = mysqli_query($conn, $sql) or die("data Error");
 
