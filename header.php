@@ -22,9 +22,5 @@
                 <li>
                     <a href="add.php">Add</a>
                 </li>
-                <!-- <li>
-                    <a href="update.php">Update</a>
-                </li> -->
-
             </ul>
         </div>
