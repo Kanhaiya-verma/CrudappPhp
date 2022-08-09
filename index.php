@@ -17,6 +17,7 @@ include 'connection.php';
 
         <table cellpadding="7px">
             <thead>
+                <th>Images</th>
                 <th>Roll_No</th>
                 <th>Name</th>
                 <th>Age</th>
@@ -27,11 +28,13 @@ include 'connection.php';
             <tbody>
                 <?php while ($row = mysqli_fetch_assoc($result)) { ?>
                     <tr>
+                        <td><img src="uploadImage/<?php echo $row['dImage']; ?>" height="50px" width="80px"></td>
                         <td><?php echo $row['dId']; ?></td>
                         <td><?php echo $row['dName']; ?></td>
                         <td><?php echo $row['dAge']; ?></td>
                         <td><?php echo $row['dMail']; ?></td>
                         <td><?php echo $row['dPassword']; ?></td>
+
                         <td>
                             <a href='edit.php?dId= <?php echo $row['dId']; ?>'>Edit</a>
 
@@ -41,6 +44,8 @@ include 'connection.php';
                 <?php } ?>
             </tbody>
         </table>
+
+
 
     <?php } else {
         echo "<h2>No record Found</h2>";
