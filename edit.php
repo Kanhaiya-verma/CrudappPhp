@@ -35,7 +35,7 @@ $row = mysqli_fetch_assoc($result);
 
         <div class="form-group">
             <img src="uploadImage/<?php echo $row['dImage']; ?>" width="40px" height="40px  ">
-            <input type="hidden" name="oldImage" value="<?php echo $row['dImage']; ?>" />
+            <input type="hidden" name="old_Image" value="<?php echo $row['dImage']; ?>" />
         </div>
 
 

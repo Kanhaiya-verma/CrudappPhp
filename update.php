@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $PASSWORD = $_POST['dPassword'];
 
 
-    if (isset($_FILES['dImage'])) {
+    if (isset($_FILES['dImage']) && $_FILES['dImage']['name']) {
         $file_name = $_FILES['dImage']['name'];
         $file_type = $_FILES['dImage']['type'];
         $file_tmp_name = $_FILES['dImage']['tmp_name'];
@@ -21,10 +21,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $fileStore = array("png", "jpg", "jpeg");
         if (in_array($fileCheck, $fileStore)) {
             move_uploaded_file($file_tmp_name, "uploadImage/" . $file_name);
+        } else {
+            echo "No Data Inserted";
         }
+    } else {
+        $file_name = $_POST['old_Image'];
     }
-
     $sql = "UPDATE details SET dname='$NAME' ,dAge='$AGE', dMail='$EMAIL', dPassword='$PASSWORD', dImage='$file_name' WHERE dId= '$ID'";
+
     $result = mysqli_query($conn, $sql);
     if ($result) {
         header("Location: index.php");
